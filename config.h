@@ -64,6 +64,7 @@ static const char *dmenucmd[]    = { "dmenu_run", "-fn", dmenufont, "-nb", col_g
 static const char *termcmd[]     = { "kitty", NULL };
 static const char *browsercmd[]  = { "thorium-browser", NULL };
 
+#include "movestack.c"
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_b,      spawn,          {.v = browsercmd } },
@@ -73,6 +74,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstackvis,  {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
