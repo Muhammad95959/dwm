@@ -1,0 +1,96 @@
+super + Return
+    kitty ~
+super + shift + Return
+    rofi -show drun -theme ~/.config/rofi/launcher.rasi
+
+super + b
+    bash "thorium-browser --test-type"
+super + shift + b
+    qutebrowser
+
+super + c
+    rofi-gpaste
+super + shift + c
+    notify-send.py a --hint boolean:deadd-notification-center:true string:type:clearPopups
+
+super + d
+    thunar
+
+super + i
+    rofi -modi emoji -show emoji -theme ~/.config/rofi/emoji_dropdown.rasi
+
+super + shift + i
+    xcalib -invert -alter
+
+super + o ; {b, d, f, i, k, m, n, p, q, r, z, shift + h, shift + i, shift + u, shift + z}
+    {kitty --hold -e nvim ~/.config/polybar/config.ini, kitty --hold -e nvim ~/.config/dwm/config.h, kitty --hold -e nvim ~/.config/newsboat/urls, kitty --hold -e nvim ~/.config/i3/config, kitty --hold -e nvim ~/.config/kitty/kitty.conf, kitty --hold -e nvim ~/.config/mpv/mpv.conf, kitty --hold -e nvim ~/.config/nvim/init.lua, kitty --hold -e nvim ~/.config/picom/picom.conf, kitty --hold -e nvim ~/.config/qutebrowser/config.py, kitty --hold -e nvim ~/.config/ranger/rc.conf, kitty --hold -e nvim ~/.config/zathura/zathurarc, kitty --hold -e nvim ~/.zhistory, kitty --hold -e nvim ~/Disk_D/Muhammad/Linux_stuff/Scripts/myManjaroI3Script.sh, kitty --hold -e nvim ~/Scripts/update_DotFiles_repo.sh, kitty --hold -e nvim ~/.zshrc}
+super + shift + o ; {c, d, e, g, k, m, o, t, u, z}
+    {bash ~/Scripts/rofi-nerdfonts/rofi-nerdfonts.sh, bash /mnt/Disk_D/Muhammad/todo.sh, kitty --hold -e bash /mnt/Disk_D/Muhammad/English_Learner/english_learner.sh, bash ~/Scripts/google_translate.sh, bash ~/Scripts/app_kill.sh, bash ~/Scripts/url_to_mpv.sh, bash ~/Scripts/open_executables.sh, bash ~/Scripts/screen_layout/two_monitors.sh, bash ~/Scripts/update_DotFiles_repo.sh, bash ~/Scripts/zathura_history.sh}
+
+super + q
+    xdotool getactivewindow windowkill
+super + shift + q
+    ~/.config/rofi/scripts/powermenu/type-1/powermenu.sh
+
+super + r
+    kitty --class Ranger --hold -e ranger
+
+# Scratchpad
+super + s
+    i3-msg scratchpad show || i3-msg move scratchpad
+
+super + shift + t
+    bash ~/Scripts/thorium_translate.sh
+
+super + shift + w
+    nitrogen --head=0 --set-zoom-fill --random --no-recurse /mnt/Disk_D/Backgrounds
+
+super + minus
+    picom-trans -c -5
+super + equal
+    picom-trans -c +5
+
+Print
+    flameshot gui --path ~/Pictures
+ctrl + Print
+    kitty --class hiddenkitty -e ~/Scripts/flameshotwindows.sh --path ~/Pictures
+shift + Print
+    flameshot full --path ~/Pictures
+
+shift + Escape
+    setcapslock toggle
+
+XF86AudioRaiseVolume
+    bash ~/Scripts/volume_control/pactl_volume_up_limit.sh
+XF86AudioLowerVolume
+    pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ -5%
+shift + XF86AudioRaiseVolume
+    bash ~/Scripts/volume_control/pactl_volume_up_by_1_limit.sh
+shift + XF86AudioLowerVolume
+    pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ -1%
+XF86AudioMute
+    bash ~/Scripts/volume_control/volume_toggle_mute.sh
+XF86AudioMicMute
+    bash ~/Scripts/volume_control/mic_toggle_mute.sh
+
+XF86MonBrightnessUp
+    ~/Scripts/brightness_control/inc.exp
+XF86MonBrightnessDown
+    ~/Scripts/brightness_control/dec.exp
+shift + XF86MonBrightnessUp
+    ~/Scripts/brightness_control/s_inc.exp
+shift + XF86MonBrightnessDown
+    ~/Scripts/brightness_control/s_dec.exp
+
+XF86AudioPlay
+    playerctl play-pause
+XF86AudioPause
+    playerctl play-pause
+XF86AudioNext
+    playerctl position 5+
+XF86AudioPrev
+    playerctl position 5-
+shift + XF86AudioNext
+    playerctl next
+shift + XF86AudioPrev
+    playerctl previous
